@@ -1,0 +1,73 @@
+/* ============================================================
+   Projects section — PROBLEM/BUILT/RESULT + confidential cards
+   Append to app/globals.css (near the existing .work-* / .pv-* rules)
+   ============================================================ */
+
+/* Confidential / client-work badge (muted, dashed) */
+.pill.nda{
+  background:var(--ink-3);
+  color:var(--muted);
+  border:1px dashed var(--line-2);
+}
+
+/* Short NDA note above the work list */
+.nda-note{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+  margin:0 0 30px;
+  padding:13px 16px;
+  border:1px dashed var(--line-2);
+  border-radius:6px;
+  background:var(--ink-2);
+}
+.nda-note b{color:var(--paper);font-weight:600}
+
+/* PROBLEM → BUILT → RESULT rows (replaces the old .desc paragraph) */
+.pbr{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:9px 14px;
+  margin:14px 0 16px;
+}
+.pbr .lab{
+  font-family:var(--f-mono);
+  font-size:10px;
+  letter-spacing:.06em;
+  color:var(--muted-2);
+  padding-top:3px;
+}
+.pbr .lab.res{color:var(--accent)}
+.pbr .txt{
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.55;
+  max-width:54ch;
+}
+.pbr .txt.res{color:var(--paper)}
+
+/* "… available on request" line (confidential cards, in place of links) */
+.work-links .req{
+  color:var(--muted);
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  letter-spacing:.04em;
+}
+
+/* Locked preview panel for confidential cards */
+.pv-conf{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:10px;
+}
+.pv-conf .lock{font-size:26px}
+.pv-conf .cap{
+  font-family:var(--f-mono);
+  font-size:11px;
+  color:var(--muted-2);
+  line-height:1.5;
+  max-width:200px;
+}

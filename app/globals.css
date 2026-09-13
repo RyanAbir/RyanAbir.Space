@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root{
-  --ink:#16110D; --ink-2:#1F1813; --ink-3:#282019;
-  --line:rgba(244,237,225,.11); --line-2:rgba(244,237,225,.20);
-  --paper:#F4EDE1; --muted:#A99A87; --muted-2:#7C7062;
-  --accent:#FF5630; --accent-deep:#D8340F; --accent-soft:rgba(255,86,48,.14);
-  --ok:#93C08A;
-  --bone:#F4EDE1; --bone-ink:#211A14; --bone-muted:#6B6152; --bone-line:rgba(33,26,20,.14);
+  --ink:#101217; --ink-2:#1B1E25; --ink-3:#22262F;
+  --line:#2C313C; --line-2:#3A404C;
+  --paper:#F4F5F7; --muted:#868C99; --muted-2:#5F6572;
+  --accent:#FF8A34; --accent-deep:#C2461A; --accent-soft:rgba(255,138,52,.14);
+  --ok:#34C77B;
+  --bone:#F1EDE4; --bone-ink:#1A1C22; --bone-muted:#5A5D64; --bone-line:rgba(26,28,34,.14);
   --maxw:1180px;
   --f-display:"Archivo",-apple-system,system-ui,sans-serif;
   --f-body:"Hanken Grotesk",-apple-system,system-ui,sans-serif;
@@ -60,7 +60,7 @@ section{position:relative;z-index:2}
 /* HERO */
 .hero{padding:clamp(56px,9vw,120px) 0 40px;position:relative;overflow:hidden}
 .hero-glow{position:absolute;z-index:0;top:-20%;right:-12%;width:46vw;height:46vw;max-width:620px;max-height:620px;
-  background:radial-gradient(circle at 60% 40%,rgba(255,86,48,.06),transparent 60%);filter:blur(24px);pointer-events:none}
+  background:radial-gradient(circle at 60% 40%,rgba(255,138,52,.07),transparent 60%);filter:blur(24px);pointer-events:none}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.35fr .85fr;gap:56px;align-items:center}
 .hero h1{font-family:var(--f-display);font-weight:900;line-height:.98;letter-spacing:-.025em;
   font-size:clamp(44px,7.3vw,92px);margin:22px 0 0;text-wrap:balance}
@@ -153,7 +153,7 @@ section{position:relative;z-index:2}
 .band .sub{color:var(--bone-muted);margin:14px 0 0;max-width:46ch}
 .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;margin-top:48px;align-items:start}
 .about-grid .lead{font-family:var(--f-display);font-weight:800;font-size:clamp(21px,2.5vw,29px);line-height:1.28;letter-spacing:-.018em;color:var(--bone-ink);margin:0}
-.about-body p{margin:0 0 16px;color:#3a322a;font-size:15.5px;line-height:1.64;max-width:66ch}
+.about-body p{margin:0 0 16px;color:#4a4d55;font-size:15.5px;line-height:1.64;max-width:66ch}
 .about-body p:last-child{margin-bottom:0}
 .about-body strong{color:var(--accent-deep);font-weight:600}
 .focus{margin-top:48px}
@@ -178,7 +178,7 @@ section{position:relative;z-index:2}
 .scat .h .no{font-family:var(--f-mono);font-size:11px;color:var(--accent)}
 .scat ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
 .scat li{font-family:var(--f-mono);font-size:12px;color:var(--muted);border:1px solid var(--line);padding:5px 9px;border-radius:2px}
-.scat.full{grid-column:1/-1;background:linear-gradient(120deg,rgba(255,86,48,.06),var(--ink-2) 42%)}
+.scat.full{grid-column:1/-1;background:linear-gradient(120deg,rgba(255,138,52,.06),var(--ink-2) 42%)}
 .scat.full li{color:var(--paper);border-color:var(--line-2)}
 .scat.full li.dim{color:var(--muted-2);border-style:dashed}
 @media(max-width:860px){.stackgrid{grid-template-columns:1fr 1fr}}
@@ -187,7 +187,7 @@ section{position:relative;z-index:2}
 /* CONTACT */
 .contact{padding:clamp(80px,11vw,140px) 0}
 .cta-card{border:1px solid var(--line-2);border-radius:10px;padding:clamp(34px,6vw,68px);
-  background:radial-gradient(120% 140% at 100% 0%,rgba(255,86,48,.16),transparent 55%),var(--ink-2);position:relative;overflow:hidden}
+  background:radial-gradient(120% 140% at 100% 0%,rgba(255,138,52,.16),transparent 55%),var(--ink-2);position:relative;overflow:hidden}
 .cta-card h2{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,6vw,68px);letter-spacing:-.03em;line-height:.98;margin:14px 0 0;text-wrap:balance;color:var(--paper)}
 .cta-card h2 .hl{color:var(--accent)}
 .cta-card .sub{color:var(--muted);margin:22px 0 34px;max-width:44ch}
@@ -213,4 +213,78 @@ section{position:relative;z-index:2}
   *{animation:none!important;scroll-behavior:auto!important}
   .reveal,.js .reveal{opacity:1;transform:none;transition:none}
   .ticker-track{animation:none}
+}
+
+/* ============================================================
+   Projects section — PROBLEM/BUILT/RESULT + confidential cards
+   Append to app/globals.css (near the existing .work-* / .pv-* rules)
+   ============================================================ */
+
+/* Confidential / client-work badge (muted, dashed) */
+.pill.nda{
+  background:var(--ink-3);
+  color:var(--muted);
+  border:1px dashed var(--line-2);
+}
+
+/* Short NDA note above the work list */
+.nda-note{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+  margin:0 0 30px;
+  padding:13px 16px;
+  border:1px dashed var(--line-2);
+  border-radius:6px;
+  background:var(--ink-2);
+}
+.nda-note b{color:var(--paper);font-weight:600}
+
+/* PROBLEM → BUILT → RESULT rows (replaces the old .desc paragraph) */
+.pbr{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:9px 14px;
+  margin:14px 0 16px;
+}
+.pbr .lab{
+  font-family:var(--f-mono);
+  font-size:10px;
+  letter-spacing:.06em;
+  color:var(--muted-2);
+  padding-top:3px;
+}
+.pbr .lab.res{color:var(--accent)}
+.pbr .txt{
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.55;
+  max-width:54ch;
+}
+.pbr .txt.res{color:var(--paper)}
+
+/* "… available on request" line (confidential cards, in place of links) */
+.work-links .req{
+  color:var(--muted);
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  letter-spacing:.04em;
+}
+
+/* Locked preview panel for confidential cards */
+.pv-conf{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:10px;
+}
+.pv-conf .lock{font-size:26px}
+.pv-conf .cap{
+  font-family:var(--f-mono);
+  font-size:11px;
+  color:var(--muted-2);
+  line-height:1.5;
+  max-width:200px;
 }
