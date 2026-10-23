@@ -3,7 +3,6 @@ import {
   GITHUB_URL,
   LINKEDIN_URL,
   RESUME_URL,
-  SITE_URL,
   WHATSAPP_URL,
 } from "../lib/constants";
 
@@ -11,7 +10,6 @@ const links: { label: string; href: string; solid?: boolean }[] = [
   { label: "GitHub ↗", href: GITHUB_URL },
   { label: "LinkedIn ↗", href: LINKEDIN_URL },
   { label: "WhatsApp ↗", href: WHATSAPP_URL },
-  { label: "ryanabir.space ↗", href: SITE_URL },
   { label: "Download résumé", href: RESUME_URL, solid: true },
 ];
 

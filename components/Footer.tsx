@@ -10,7 +10,7 @@ export default function Footer() {
           <b>{SITE_NAME}</b>
         </a>
         <div className="fmeta">
-          © {new Date().getFullYear()} — Built &amp; shipped in Dhaka
+          {`© ${new Date().getFullYear()} — Built & shipped in Dhaka`}
         </div>
         <div className="flinks">
           <a href="#work">Work</a>

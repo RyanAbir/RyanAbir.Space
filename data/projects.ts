@@ -126,11 +126,10 @@ export const projects: Project[] = [
       "Cloudflare Workers",
       "Vitest / Playwright",
     ],
-    links: {
-      // TODO: replace with the live store URL *after* renaming the deployment
-      // so the client's name is not in the URL. Add `github` here only if the repo is public.
-      liveDemo: "https://REPLACE_WITH_LIVE_STORE_URL",
-    },
+    // TODO: add `links: { liveDemo: "https://…" }` once the deployment is renamed
+    // so the client's name is not in the URL. Add `github` only if the repo is public.
+    // Until then the card shows the request line below instead of a demo link.
+    requestLabel: "Walkthrough available on request",
   },
 
   // ── Self-made, live products (keep exact titles — Projects.tsx keys custom previews on them) ──

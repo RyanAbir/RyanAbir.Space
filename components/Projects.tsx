@@ -23,7 +23,7 @@ function Preview({ project }: { project: Project }) {
           <i />
           <i />
           <span className="url">
-            // {project.status === "Client Work" ? "client work" : "under NDA"}
+            {`// ${project.status === "Client Work" ? "client work" : "under NDA"}`}
           </span>
         </div>
         <div className="fbody pv-conf">
@@ -37,7 +37,9 @@ function Preview({ project }: { project: Project }) {
     );
   }
 
-  const url = hostOf(project.links?.liveDemo ?? "");
+  const url = project.links
+    ? hostOf(project.links.liveDemo)
+    : `// ${project.status.toLowerCase()}`;
 
   let body: React.ReactNode;
   switch (project.title) {
@@ -149,7 +151,8 @@ export default function Projects() {
         </div>
 
         <p className="nda-note reveal">
-          <b>A note on the confidential work below:</b> my strongest systems are
+          <b>A note on the confidential work below:</b>{" "}
+          my strongest systems are
           internal business platforms built under NDA, so they&apos;re described
           by capability and architecture — not by client or data. Happy to walk
           through the design and engineering in a call.

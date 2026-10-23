@@ -44,7 +44,7 @@ export default function Hero() {
         <aside className="spec reveal" aria-label={`${SITE_NAME} profile summary`}>
           <div className="mk">
             <Logo />
-            <span className="tag">// profile</span>
+            <span className="tag">{"// profile"}</span>
           </div>
           <dl>
             {specs.map((spec) => (
