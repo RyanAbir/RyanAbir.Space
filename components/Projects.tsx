@@ -3,6 +3,9 @@ import { projects, type Project, type ProjectStatus } from "../data/projects";
 const pillClass: Record<ProjectStatus, string> = {
   Featured: "pill featured",
   Live: "pill live",
+  Beta: "pill featured",
+  "Pre-launch": "pill done",
+  "Internal Tool": "pill done",
   Completed: "pill done",
   "In Progress": "pill done",
   Confidential: "pill nda",
@@ -43,59 +46,120 @@ function Preview({ project }: { project: Project }) {
 
   let body: React.ReactNode;
   switch (project.title) {
-    case "JobFit Copilot":
+    case "vWorker":
       body = (
         <>
-          <div className="pv-row">
-            <div className="pv-kpi">
-              <div className="l">Fit score</div>
-              <div className="v a">87%</div>
-            </div>
-            <div className="pv-kpi">
-              <div className="l">Matched</div>
-              <div className="v">12</div>
-            </div>
-            <div className="pv-kpi">
-              <div className="l">Missing</div>
-              <div className="v">3</div>
-            </div>
+          <div className="pv-list">
+            {["#0084FF", "#25D366", "#E1306C"].map((color) => (
+              <div className="pv-item" key={color}>
+                <span className="sw" style={{ background: color }} />
+                <div className="tx">
+                  <div className="a" />
+                  <div className="b" />
+                </div>
+                <span className="pv-badge">AI</span>
+              </div>
+            ))}
           </div>
-          <div className="pv-line m" />
-          <div className="pv-line s" />
-          <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
-            <span className="pv-badge">resume keyword</span>
-            <span className="pv-badge">red flag</span>
-            <span className="pv-badge">email draft</span>
+          <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+            <span className="pv-badge">order taken</span>
+            <span className="pv-badge">courier booked</span>
+            <span className="pv-badge">handoff</span>
           </div>
         </>
       );
       break;
-    case "SaaS Billing Starter":
+    case "Shishu Mela":
       body = (
         <>
           <div className="pv-row">
             <div className="pv-kpi">
-              <div className="l">Plan</div>
-              <div className="v a">Pro</div>
+              <div className="l">Checkout</div>
+              <div className="v a">COD</div>
             </div>
             <div className="pv-kpi">
-              <div className="l">MRR</div>
-              <div className="v">$4.9k</div>
+              <div className="l">Couriers</div>
+              <div className="v">3</div>
             </div>
           </div>
           <div className="pv-bars">
-            <b style={{ height: "40%" }} />
-            <b style={{ height: "58%" }} />
-            <b style={{ height: "50%" }} />
-            <b style={{ height: "72%" }} />
-            <b className="a" style={{ height: "96%" }} />
-            <b style={{ height: "80%" }} />
+            <b style={{ height: "42%" }} />
+            <b style={{ height: "56%" }} />
+            <b style={{ height: "48%" }} />
+            <b style={{ height: "70%" }} />
+            <b className="a" style={{ height: "94%" }} />
+            <b style={{ height: "76%" }} />
+          </div>
+          <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
+            <span className="pv-badge">Meta CAPI</span>
+            <span className="pv-badge">TikTok</span>
+            <span className="pv-badge">funnel</span>
+          </div>
+        </>
+      );
+      break;
+    case "Modern Service":
+      body = (
+        <>
+          <div className="pv-row">
+            <div className="pv-kpi">
+              <div className="l">Offer window</div>
+              <div className="v a">60s</div>
+            </div>
+            <div className="pv-kpi">
+              <div className="l">Accepted</div>
+              <div className="v">1×</div>
+            </div>
+          </div>
+          <div className="pv-list" style={{ marginTop: 14 }}>
+            {["var(--accent)", "var(--muted-2)"].map((color) => (
+              <div className="pv-item" key={color}>
+                <span className="sw" style={{ background: color }} />
+                <div className="tx">
+                  <div className="a" />
+                  <div className="b" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
+            <span className="pv-badge">support agent</span>
+            <span className="pv-badge">ops agent</span>
+            <span className="pv-badge">admin agent</span>
+          </div>
+        </>
+      );
+      break;
+    case "Distributed Agentic Workspace":
+      body = (
+        <>
+          <div className="pv-row">
+            <div className="pv-kpi">
+              <div className="l">Nodes online</div>
+              <div className="v a">4</div>
+            </div>
+            <div className="pv-kpi">
+              <div className="l">Approvals</div>
+              <div className="v">Gated</div>
+            </div>
+          </div>
+          <div className="pv-list" style={{ marginTop: 14 }}>
+            {["win", "win", "mac"].map((node, i) => (
+              <div className="pv-item" key={i}>
+                <span className="sw" style={{ background: "var(--ok)" }} />
+                <div className="tx">
+                  <div className="a" />
+                  <div className="b" />
+                </div>
+                <span className="pv-badge">{node}</span>
+              </div>
+            ))}
           </div>
         </>
       );
       break;
     default:
-      // Generic "live app" preview (used by the E-Commerce / Catalog Platform card).
+      // Generic "live app" preview for any future card without a custom one.
       body = (
         <>
           <div className="pv-row">
@@ -145,13 +209,13 @@ export default function Projects() {
             <h2>Systems, not demos.</h2>
           </div>
           <p>
-            Real production platforms I&apos;ve engineered, plus live builds you
-            can open and inspect. 2024–2026.
+            Products I&apos;ve designed and shipped — from a live e-commerce store
+            to AI-driven SaaS — plus platforms built under NDA. 2024–2026.
           </p>
         </div>
 
         <p className="nda-note reveal">
-          <b>A note on the confidential work below:</b>{" "}
+          <b>A note on the NDA work further down:</b>{" "}
           my strongest systems are
           internal business platforms built under NDA, so they&apos;re described
           by capability and architecture — not by client or data. Happy to walk

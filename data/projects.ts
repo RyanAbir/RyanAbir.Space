@@ -1,6 +1,9 @@
 export type ProjectStatus =
   | "Featured"
   | "Live"
+  | "Beta"
+  | "Pre-launch"
+  | "Internal Tool"
   | "Completed"
   | "In Progress"
   | "Confidential"
@@ -29,6 +32,101 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  // ── Products I designed and built solo (keep exact titles — Projects.tsx keys custom previews on them) ──
+  {
+    title: "vWorker",
+    type: "Own product · multi-tenant SaaS · built solo, AI-assisted",
+    status: "Beta",
+    problem:
+      "Online sellers in Bangladesh answer customers by hand across Messenger, Instagram, WhatsApp and their website — orders get lost between chats, couriers, and spreadsheets.",
+    built:
+      "A multi-tenant SaaS that puts every channel in one inbox and adds an AI sales agent that replies in Bangla, English, and Banglish — finding products, quoting server-computed prices, and taking orders and bookings — with order management, Pathao / Steadfast / RedX courier adapters, a public REST API with signed webhooks, and Postgres row-level security isolating every tenant.",
+    result:
+      "In private beta with a pilot shop: the agent has taken orders end-to-end on a live Facebook page, passes 36/36 real-model evals, and costs about 1–7 paisa per reply.",
+    tech: [
+      "TypeScript",
+      "Fastify",
+      "Next.js 16",
+      "PostgreSQL + RLS",
+      "Drizzle ORM",
+      "BullMQ / Redis",
+      "pgvector",
+      "LLM tool use",
+      "Meta Graph API",
+    ],
+    requestLabel: "Product demo on request",
+  },
+  {
+    title: "Shishu Mela",
+    type: "Client e-commerce · full-stack · Next.js on Cloudflare",
+    status: "Live",
+    problem:
+      "A kids' products shop selling through Facebook and TikTok ads needed a fast mobile store, cash-on-delivery checkout, an admin that keeps up with order volume, and ad tracking it could trust.",
+    built:
+      "A storefront and operations admin on Cloudflare Workers: server-priced COD checkout with idempotency keys and row-locked stock, order operations (risk flags, courier assignment, refunds, invoices, audit log), a landing-page builder for ad campaigns, Meta and TikTok server-side conversion tracking, first-party funnel analytics, and a transactional outbox processed by cron.",
+    result:
+      "In production since August 2026, backed by ~220 automated tests and CI — a double-click plus refresh still creates exactly one order.",
+    tech: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Cloudflare Workers",
+      "Meta Conversions API",
+      "Vitest / Playwright",
+    ],
+    links: {
+      liveDemo: "https://shishumela.site",
+    },
+  },
+  {
+    title: "Modern Service",
+    type: "Own product · service marketplace + mobile app · built solo, AI-assisted",
+    status: "Pre-launch",
+    problem:
+      "Appliance-repair bookings run on phone calls and chat — jobs get double-booked, technicians miss offers, and nobody owns the follow-up.",
+    built:
+      "A repair marketplace with guest booking, a dispatch engine that sends timed job offers to ranked providers, a Flutter app for providers and technicians, a unified staff inbox for web chat, Messenger, Instagram and WhatsApp, and three AI agents (support, operations, admin) that act only through permission-checked tools and human approvals.",
+    result:
+      "Pilot-ready, with 900+ domain and integration tests on real PostgreSQL; under load every booking was accepted exactly once and the next offer went out in under a second.",
+    tech: [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Flutter",
+      "Supabase Auth",
+      "AI agents",
+      "Meta Graph API",
+      "Playwright",
+    ],
+    requestLabel: "Walkthrough available on request",
+  },
+  {
+    title: "Distributed Agentic Workspace",
+    type: "Own tool · distributed systems · Go + TypeScript · built solo, AI-assisted",
+    status: "Internal Tool",
+    problem:
+      "Running coding agents and local AI models across several machines meant juggling terminals and hand-offs, with no record of what ran where or who approved it.",
+    built:
+      "A self-hosted control plane that turns Windows and macOS machines into a private worker cluster: a Go agent with Ed25519-signed requests, a Postgres job queue with fenced leases and idempotent submission, single-use approval gates, Claude Code / Codex pipelines with plan and review stages, and an OpenAI-compatible gateway to a local LLM — reachable only over a private network.",
+    result:
+      "In daily use across 4 machines: 75 of 85 acceptance criteria passing, and 4 of 5 multi-agent team tasks delivered working, tested code.",
+    tech: [
+      "TypeScript",
+      "Go",
+      "Fastify",
+      "Next.js",
+      "PostgreSQL",
+      "Ed25519",
+      "Tailscale",
+      "Ollama",
+      "Claude Code / Codex",
+    ],
+    requestLabel: "Architecture available on request",
+  },
+
   // ── Professional / confidential work (anonymised — no client names, no URLs) ──
   {
     title: "AI-Automated Operations Platform",
@@ -104,79 +202,5 @@ export const projects: Project[] = [
     requestLabel: "Architecture available on request",
     previewIcon: "🔒",
     previewCaption: "Handles money to the cent + large-file storage",
-  },
-  {
-    title: "E-Commerce / Catalog Platform",
-    type: "Online store · full-stack · Next.js / Cloudflare",
-    status: "Client Work",
-    problem:
-      "A retail business needed a fast, modern online store built around a large, frequently-changing product catalog.",
-    built:
-      "A Next.js 15 / React 19 storefront in TypeScript with a type-safe PostgreSQL catalog (Drizzle ORM), JWT auth validated with Zod, S3-compatible image storage, automated catalog import scripts, and a unit + end-to-end test suite — deployed on Cloudflare Workers/Pages.",
-    result:
-      "A production e-commerce platform with a fully typed, maintainable codebase and catalog management that updates itself instead of by hand.",
-    tech: [
-      "Next.js 15",
-      "React 19",
-      "TypeScript",
-      "Drizzle ORM",
-      "PostgreSQL",
-      "JWT / Zod",
-      "S3",
-      "Cloudflare Workers",
-      "Vitest / Playwright",
-    ],
-    // TODO: add `links: { liveDemo: "https://…" }` once the deployment is renamed
-    // so the client's name is not in the URL. Add `github` only if the repo is public.
-    // Until then the card shows the request line below instead of a demo link.
-    requestLabel: "Walkthrough available on request",
-  },
-
-  // ── Self-made, live products (keep exact titles — Projects.tsx keys custom previews on them) ──
-  {
-    title: "JobFit Copilot",
-    type: "AI SaaS · Full-stack web app",
-    status: "Featured",
-    problem:
-      "Job seekers apply blindly and can't tell how well they actually fit a role.",
-    built:
-      "An AI assistant that scores a saved developer profile against any job post or link, flags matched and missing skills and red flags, suggests résumé keywords, and drafts a tailored application email — all tracked in a dashboard.",
-    result:
-      'Turns a vague "am I a fit?" into a clear score, a red-flag list, and a ready-to-send application.',
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Supabase Auth",
-      "Gemini API",
-      "Tailwind CSS",
-      "Vercel",
-    ],
-    links: {
-      liveDemo: "https://jobfit-copilot-sigma.vercel.app",
-      github: "https://github.com/RyanAbir/jobfit-copilot",
-    },
-  },
-  {
-    title: "SaaS Billing Starter",
-    type: "SaaS billing system",
-    status: "Live",
-    problem:
-      "Subscription billing is where SaaS apps quietly leak revenue and break.",
-    built:
-      "A complete Stripe billing lifecycle — checkout, webhook-synced subscription state, customer portal, dunning, scheduled cancellation, duplicate-subscription prevention, and server-side plan-based feature gating.",
-    result:
-      "A drop-in billing layer that prevents duplicate charges and handles failed payments on its own.",
-    tech: [
-      "Next.js",
-      "Stripe Billing",
-      "Prisma",
-      "Neon",
-      "PostgreSQL",
-      "Webhooks",
-    ],
-    links: {
-      liveDemo: "https://saas-billing-starter-one.vercel.app",
-      github: "https://github.com/RyanAbir/saas-billing-starter",
-    },
   },
 ];
