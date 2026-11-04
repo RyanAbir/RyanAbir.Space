@@ -12,6 +12,7 @@ import {
   SITE_TITLE,
   SITE_URL,
 } from "../lib/constants";
+import { profile } from "../lib/profile";
 import "./globals.css";
 
 // Profile data search engines read (schema.org Person).
@@ -37,6 +38,8 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   metadataBase: new URL(SITE_URL),
+  // The career agent checks for this after a portfolio update, to tell Ryan when it's live.
+  other: { "profile-version": profile.version },
   alternates: { canonical: "/" },
   icons: {
     icon: [

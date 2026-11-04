@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "person": {
+    "name": "Ryan Abir",
+    "role": "AI Agent Engineer & Full-Stack Developer"
+  },
+  "metrics": {
+    "career-sales-agent.missions": "15",
+    "career-sales-agent.tests": "225",
+    "daw.tests": "372",
+    "repair-marketplace.tests": "900+",
+    "shishu-mela.tests": "~221",
+    "tests_total": "2,100+",
+    "vworker.evals": "36/36",
+    "vworker.reply_cost": "1–7 paisa",
+    "vworker.tests": "~420"
+  },
+  "cv": {
+    "general": "/resume/Ryan_Abir_Resume.pdf",
+    "ats": "/resume/Ryan_Abir_ATS_Resume.pdf"
+  },
+  "version": "ad95b325d61d",
+  "updated": "2026-11-04"
+}

@@ -1,3 +1,5 @@
+import { cv } from "./profile";
+
 export const SITE_NAME = "Ryan Abir";
 export const SITE_ROLE = "AI Agent Engineer & Full-Stack Developer";
 
@@ -6,8 +8,9 @@ export const SITE_DESCRIPTION =
   "I build AI agents that do real work, safely, and the full-stack systems around them: guardrails in code, a human in the loop, and production-grade TypeScript and Python.";
 
 export const SITE_URL = "https://www.ryanabir.space";
-export const RESUME_URL = "/resume/Ryan_Abir_Resume.pdf";
-export const ATS_RESUME_URL = "/resume/Ryan_Abir_ATS_Resume.pdf";
+// Built by the career agent from the master CV and published with each approved portfolio update.
+export const RESUME_URL = cv("general");
+export const ATS_RESUME_URL = cv("ats");
 
 export const EMAIL = "info.ryanabir@gmail.com";
 export const GITHUB_URL = "https://github.com/RyanAbir";

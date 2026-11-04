@@ -1,11 +1,12 @@
 import Image from "next/image";
 import AgentReplay from "./AgentReplay";
 import { RESUME_URL } from "../lib/constants";
+import { m } from "../lib/profile";
 
 // Proof a hiring team can check in the case studies: test counts add up vWorker, Shishu Mela, the repair
-// marketplace, DAW and the career agent.
+// marketplace, DAW and the career agent (worked out by the career agent from the master CV).
 const proof = [
-  { value: "2,000+", label: "automated tests across my systems" },
+  { value: m("tests_total"), label: "automated tests across my systems" },
   { value: "4", label: "AI agent systems running today" },
   { value: "Sole dev", label: "of a company's all-in-one platform" },
 ];

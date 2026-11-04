@@ -1,5 +1,8 @@
 // Everything the work cards and case-study pages show. Facts only: no invented clients, revenue or
 // traffic. Client and employer details follow what each one agreed to share.
+// Every number comes from data/profile.json (m("...")), which the career agent publishes from the master CV.
+
+import { m } from "../lib/profile";
 
 export type Tone = "acc" | "ok" | "blue" | "grey";
 
@@ -45,12 +48,12 @@ export const caseStudies: CaseStudy[] = [
     facts: [
       { label: "Role", value: "Solo: design, build, deploy, run" },
       { label: "Status", value: "Running 24/7 on a Linux server" },
-      { label: "Tests", value: "144 automated" },
+      { label: "Tests", value: `${m("career-sales-agent.tests")} automated` },
       { label: "Timeline", value: "October 2026 – now" },
     ],
     metrics: [
-      { value: "144", label: "automated tests" },
-      { value: "10", label: "scheduled missions" },
+      { value: m("career-sales-agent.tests"), label: "automated tests" },
+      { value: m("career-sales-agent.missions"), label: "scheduled missions" },
       { value: "24/7", label: "on its own Linux server" },
     ],
     stack: [
@@ -96,7 +99,7 @@ export const caseStudies: CaseStudy[] = [
       title: "Every action goes through one gate.",
       rows: [
         [
-          { title: "Missions", body: "10 scheduled jobs: scout, inbox, social scan, lead hunt, nurture, reports" },
+          { title: "Missions", body: `${m("career-sales-agent.missions")} scheduled jobs: scout, inbox, social scan, lead hunt, nurture, reports` },
           { title: "Claude Agent SDK", body: "Opus for writing and judgement, Haiku for bulk scoring" },
           { title: "Knowledge base", body: "Master CV, playbooks and lessons learned, as Markdown" },
         ],
@@ -142,8 +145,8 @@ export const caseStudies: CaseStudy[] = [
     standing: {
       title: "Running, tested, honest about limits.",
       metrics: [
-        { value: "144", label: "automated tests, run before every deploy" },
-        { value: "10", label: "missions running unattended on a server" },
+        { value: m("career-sales-agent.tests"), label: "automated tests, run before every deploy" },
+        { value: m("career-sales-agent.missions"), label: "missions running unattended on a server" },
         { value: "1", label: "gate every outgoing message passes" },
       ],
       note: "Results are measured in my own pipeline, not a client's: no revenue or conversion figures are claimed.",
@@ -165,12 +168,12 @@ export const caseStudies: CaseStudy[] = [
     facts: [
       { label: "Role", value: "Solo: product, architecture, build" },
       { label: "Status", value: "Private beta with a pilot shop" },
-      { label: "Tests", value: "~420 integration tests" },
-      { label: "Evals", value: "36/36 on real models" },
+      { label: "Tests", value: `${m("vworker.tests")} integration tests` },
+      { label: "Evals", value: `${m("vworker.evals")} on real models` },
     ],
     metrics: [
-      { value: "~420", label: "integration tests" },
-      { value: "1–7 paisa", label: "per AI reply" },
+      { value: m("vworker.tests"), label: "integration tests" },
+      { value: m("vworker.reply_cost"), label: "per AI reply" },
       { value: "1st", label: "real order taken by the agent" },
     ],
     stack: [
@@ -225,8 +228,8 @@ export const caseStudies: CaseStudy[] = [
     standing: {
       title: "In private beta.",
       metrics: [
-        { value: "36/36", label: "real-model evals passing" },
-        { value: "1–7 paisa", label: "cost per AI reply" },
+        { value: m("vworker.evals"), label: "real-model evals passing" },
+        { value: m("vworker.reply_cost"), label: "cost per AI reply" },
         { value: "Live", label: "orders taken end-to-end on a real Facebook page" },
       ],
       note: "Pre-launch: no revenue or customer counts are claimed.",
@@ -313,18 +316,18 @@ export const caseStudies: CaseStudy[] = [
       { label: "Client · e-commerce", tone: "grey" },
     ],
     summary:
-      "A kids' store on Cloudflare Workers: cash-on-delivery checkout that never double-orders, an operations admin, and Meta and TikTok server-side ad tracking. Live since August 2026, about 221 tests.",
+      `A kids' store on Cloudflare Workers: cash-on-delivery checkout that never double-orders, an operations admin, and Meta and TikTok server-side ad tracking. Live since August 2026, about ${m("shishu-mela.tests").replace("~", "")} tests.`,
     intro:
       "A storefront and operations admin for a children's products shop that sells through Facebook and TikTok ads, built on Cloudflare Workers for a paying client.",
     facts: [
       { label: "Role", value: "Solo, for a paying client" },
       { label: "Status", value: "Live since August 2026" },
-      { label: "Tests", value: "~221 automated, in CI" },
+      { label: "Tests", value: `${m("shishu-mela.tests")} automated, in CI` },
       { label: "Hosting", value: "Cloudflare Workers" },
     ],
     metrics: [
       { value: "Live", label: "since August 2026" },
-      { value: "~221", label: "automated tests in CI" },
+      { value: m("shishu-mela.tests"), label: "automated tests in CI" },
       { value: "1", label: "order per checkout, always" },
     ],
     stack: ["Next.js 15", "React 19", "TypeScript", "PostgreSQL", "Drizzle ORM", "Cloudflare Workers", "Meta Conversions API", "Vitest / Playwright"],
@@ -363,13 +366,13 @@ export const caseStudies: CaseStudy[] = [
     decisions: [
       { title: "Idempotent checkout", body: "A double-click plus a refresh still creates exactly one order." },
       { title: "A transactional outbox", body: "Ad events and notifications are written with the order and sent by cron, so none are lost or doubled." },
-      { title: "Tests before features", body: "About 221 automated tests run in CI on every change." },
+      { title: "Tests before features", body: `About ${m("shishu-mela.tests").replace("~", "")} automated tests run in CI on every change.` },
     ],
     standing: {
       title: "In production.",
       metrics: [
         { value: "Aug 2026", label: "live since" },
-        { value: "~221", label: "automated tests" },
+        { value: m("shishu-mela.tests"), label: "automated tests" },
         { value: "CI", label: "every change tested before it ships" },
       ],
       note: "No sales, revenue or traffic figures are claimed.",
@@ -385,12 +388,12 @@ export const moreWork: MoreItem[] = [
   {
     title: "Distributed Agentic Workspace",
     tag: "Own tool",
-    body: "Runs AI coding agents across several machines, with signed workers, a job queue with recovery and approval gates. 372 tests.",
+    body: `Runs AI coding agents across several machines, with signed workers, a job queue with recovery and approval gates. ${m("daw.tests")} tests.`,
   },
   {
     title: "Repair marketplace with AI agents",
     tag: "Client · pre-launch",
-    body: "Booking, a dispatch engine with timed accept-once offers, a Flutter app and three AI agents behind human approval. 900+ tests.",
+    body: `Booking, a dispatch engine with timed accept-once offers, a Flutter app and three AI agents behind human approval. ${m("repair-marketplace.tests")} tests.`,
   },
   {
     title: "JobFit Copilot",
