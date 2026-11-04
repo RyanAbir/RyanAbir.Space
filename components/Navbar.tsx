@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import { NAV_LINKS, RESUME_URL, SITE_NAME } from "../lib/constants";
@@ -20,15 +21,15 @@ export default function Navbar() {
   return (
     <nav className={`nav${open ? " open" : ""}`}>
       <div className="wrap">
-        <a className="brand" href="#top" aria-label={`${SITE_NAME} — home`}>
+        <Link className="brand" href="/" aria-label={`${SITE_NAME} — home`}>
           <Logo />
           <b>{SITE_NAME}</b>
-        </a>
+        </Link>
         <div className="nav-links">
           {NAV_LINKS.map((link) => (
-            <a href={link.href} key={link.href}>
+            <Link href={link.href} key={link.href}>
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             className="btn btn-ghost"
@@ -54,9 +55,9 @@ export default function Navbar() {
       <div className="mobile-menu" id="mobile-menu" hidden={!open}>
         <div className="wrap">
           {NAV_LINKS.map((link) => (
-            <a href={link.href} key={link.href} onClick={() => setOpen(false)}>
+            <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

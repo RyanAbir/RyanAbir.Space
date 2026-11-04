@@ -3,13 +3,29 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ClientFX from "../components/ClientFX";
 import {
+  GITHUB_URL,
+  LINKEDIN_URL,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
+  SITE_ROLE,
   SITE_TITLE,
   SITE_URL,
 } from "../lib/constants";
 import "./globals.css";
+
+// Profile data search engines read (schema.org Person).
+const PERSON = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE_NAME,
+  jobTitle: SITE_ROLE,
+  url: SITE_URL,
+  image: `${SITE_URL}/images/ryan-abir.jpg`,
+  address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
+  sameAs: [LINKEDIN_URL, GITHUB_URL],
+  knowsAbout: ["AI agents", "LLM tool use", "Full-stack development", "TypeScript", "Python", "Next.js"],
+};
 
 const FONTS_HREF =
   "https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap";
@@ -60,6 +76,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href={FONTS_HREF} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON) }}
+        />
         {/* Gate reveal animations behind JS before paint to avoid a flash. */}
         <script
           dangerouslySetInnerHTML={{

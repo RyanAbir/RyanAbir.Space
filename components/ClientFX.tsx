@@ -1,20 +1,16 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Client-only progressive enhancement: duplicate the marquee for a seamless
-// loop, and reveal `.reveal` elements as they scroll into view. Content is
-// never permanently hidden — a safety timeout and a no-observer fallback both
-// force-reveal, and the `.js` gate means content is fully visible without JS.
+// Client-only progressive enhancement: reveal `.reveal` elements as they scroll into view, again on every
+// page (the case studies are client-side navigations). Content is never permanently hidden: a safety timeout
+// and a no-observer fallback both force-reveal, and the `.js` gate means it's fully visible without JS.
 export default function ClientFX() {
-  useEffect(() => {
-    const ticker = document.getElementById("ticker");
-    if (ticker && ticker.dataset.dup !== "1") {
-      ticker.innerHTML += ticker.innerHTML;
-      ticker.dataset.dup = "1";
-    }
+  const pathname = usePathname();
 
-    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal:not(.in)"));
     let io: IntersectionObserver | null = null;
 
     if ("IntersectionObserver" in window) {
@@ -42,7 +38,7 @@ export default function ClientFX() {
       window.clearTimeout(safety);
       io?.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

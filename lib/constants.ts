@@ -1,10 +1,9 @@
 export const SITE_NAME = "Ryan Abir";
-export const SITE_ROLE = "Full-Stack Software Engineer";
-export const SITE_FOCUS = "Scalable business software — CRM, ERP & SaaS platforms";
+export const SITE_ROLE = "AI Agent Engineer & Full-Stack Developer";
 
 export const SITE_TITLE = `${SITE_NAME} | ${SITE_ROLE}`;
 export const SITE_DESCRIPTION =
-  "Full-Stack Software Engineer building scalable business software — CRM, ERP, SaaS platforms, and workflow-driven applications — with AI-assisted development, grounded in engineering fundamentals.";
+  "I build AI agents that do real work, safely, and the full-stack systems around them: guardrails in code, a human in the loop, and production-grade TypeScript and Python.";
 
 export const SITE_URL = "https://www.ryanabir.space";
 export const RESUME_URL = "/resume/Ryan_Abir_Resume.pdf";
@@ -17,19 +16,21 @@ export const WHATSAPP_URL = "https://wa.me/8801715682373";
 
 export const SITE_KEYWORDS = [
   "Ryan Abir",
-  "Full-Stack Software Engineer",
-  "CRM",
-  "ERP",
-  "SaaS",
+  "AI Agent Engineer",
+  "Applied AI Engineer",
+  "Full-Stack Developer",
+  "Claude Agent SDK",
+  "LLM tool use",
   "Next.js",
   "TypeScript",
   "Python",
-  "AI-Assisted Development",
+  "Remote",
 ] as const;
 
+// Absolute paths, so the links work from the case-study pages too.
 export const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Stack", href: "#stack" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "How I build agents", href: "/#agents" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Contact", href: "/#contact" },
 ] as const;

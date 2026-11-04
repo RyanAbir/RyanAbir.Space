@@ -1,60 +1,63 @@
-import Logo from "./Logo";
-import { SITE_NAME } from "../lib/constants";
+import Image from "next/image";
+import AgentReplay from "./AgentReplay";
+import { RESUME_URL } from "../lib/constants";
 
-const specs: { term: string; value: React.ReactNode }[] = [
-  { term: "Role", value: "Full-Stack Engineer" },
-  { term: "Languages", value: "TypeScript · Python" },
-  { term: "Backend", value: "Node · Flask · Next.js" },
-  { term: "Focus", value: "CRM · E-commerce · AI" },
-  { term: "Shipped", value: "6+ production systems" },
-  { term: "Status", value: <span className="ok">● Available</span> },
+// Proof a hiring team can check in the case studies: test counts add up vWorker, Shishu Mela, the repair
+// marketplace, DAW and the career agent.
+const proof = [
+  { value: "2,000+", label: "automated tests across my systems" },
+  { value: "4", label: "AI agent systems running today" },
+  { value: "Sole dev", label: "of a company's all-in-one platform" },
 ];
 
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="hero-glow" />
+      <div className="hero-glow" aria-hidden="true" />
       <div className="wrap">
-        <div>
-          <span className="eyebrow reveal">
-            <span className="n">01</span> Full-Stack Software Engineer — Dhaka, BD
-          </span>
+        <div className="hero-main">
+          <div className="hero-id reveal">
+            <Image
+              src="/images/ryan-abir.jpg"
+              alt="Ryan Abir"
+              width={56}
+              height={56}
+              className="avatar"
+              priority
+            />
+            <div>
+              <span className="eyebrow">AI Agent Engineer · Full-Stack</span>
+              <span className="hero-where">Dhaka, Bangladesh · working remotely worldwide</span>
+            </div>
+          </div>
           <h1 className="reveal">
-            I build the software a business <span className="hl">runs on.</span>
+            I build AI agents that do real work, <span className="hl">safely.</span>
           </h1>
           <p className="lede reveal">
-            Custom business web apps — CRM, e-commerce, AI automation, and
-            business platforms — engineered full-stack, delivered fast with
-            AI-assisted development, grounded in fundamentals.
+            And the full-stack systems around them: from a sales agent that takes orders in Bangla to the
+            operations platform a company runs on every day.
           </p>
           <div className="hero-cta reveal">
             <a className="btn btn-solid" href="#work">
-              View selected work
+              See the work
+            </a>
+            <a className="btn btn-ghost" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+              Résumé (PDF)
             </a>
             <a className="btn btn-ghost" href="#contact">
               Get in touch
             </a>
           </div>
-          <div className="status reveal">
-            <span className="dot" /> Open to freelance, remote roles &amp;
-            startup collaborations
-          </div>
-        </div>
-
-        <aside className="spec reveal" aria-label={`${SITE_NAME} profile summary`}>
-          <div className="mk">
-            <Logo />
-            <span className="tag">{"// profile"}</span>
-          </div>
-          <dl>
-            {specs.map((spec) => (
-              <div className="row" key={spec.term}>
-                <dt>{spec.term}</dt>
-                <dd>{spec.value}</dd>
+          <dl className="proof reveal">
+            {proof.map((p) => (
+              <div key={p.label}>
+                <dt>{p.label}</dt>
+                <dd>{p.value}</dd>
               </div>
             ))}
           </dl>
-        </aside>
+        </div>
+        <AgentReplay />
       </div>
     </section>
   );

@@ -1,18 +1,17 @@
-import About from "../components/About";
 import Contact from "../components/Contact";
 import Hero from "../components/Hero";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
-import Ticker from "../components/Ticker";
+import { AgentLayers, Experience, MoreWork, Stack } from "../components/Sections";
+import Work from "../components/Work";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Ticker />
-      <About />
-      <Projects />
-      <Skills />
+      <Work />
+      <AgentLayers />
+      <MoreWork />
+      <Experience />
+      <Stack />
       <Contact />
     </>
   );
