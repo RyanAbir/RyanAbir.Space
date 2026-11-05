@@ -6,7 +6,7 @@
   },
   "metrics": {
     "career-sales-agent.missions": "15",
-    "career-sales-agent.tests": "225",
+    "career-sales-agent.tests": "242",
     "daw.tests": "372",
     "repair-marketplace.tests": "900+",
     "shishu-mela.tests": "~221",
@@ -19,6 +19,6 @@
     "general": "/resume/Ryan_Abir_Resume.pdf",
     "ats": "/resume/Ryan_Abir_ATS_Resume.pdf"
   },
-  "version": "ad95b325d61d",
-  "updated": "2026-11-04"
+  "version": "3d0bee23c174",
+  "updated": "2026-11-05"
 }
