@@ -6,11 +6,11 @@
   },
   "metrics": {
     "career-sales-agent.missions": "15",
-    "career-sales-agent.tests": "257",
+    "career-sales-agent.tests": "281",
     "daw.tests": "372",
     "repair-marketplace.tests": "900+",
     "shishu-mela.tests": "~221",
-    "tests_total": "2,100+",
+    "tests_total": "2,200+",
     "vworker.evals": "36/36",
     "vworker.reply_cost": "1–7 paisa",
     "vworker.tests": "~420"
@@ -19,6 +19,6 @@
     "general": "/resume/Ryan_Abir_Resume.pdf",
     "ats": "/resume/Ryan_Abir_ATS_Resume.pdf"
   },
-  "version": "409b4c144ae1",
-  "updated": "2026-11-05"
+  "version": "7ee78c47f68d",
+  "updated": "2026-11-06"
 }
